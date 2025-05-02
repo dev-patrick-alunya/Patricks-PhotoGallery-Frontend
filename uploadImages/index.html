@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images Upload</title>
+
+    <!-- Custom Header CSS styling -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/imageUpload.css"/>
+
+    <link rel="stylesheet" type="text/css" href="./assets/css/imagePreviewsList.css"/>
+</head>
+<body>
+    <h1>Upload Images</h1>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <label for="imageUpload">Select images to upload:</label>
+        <input type="file" id="imageUpload" name="files" accept="image/*" multiple>
+        <div id="imagePreviews" class="image-previews-container" style="display: flex; flex-wrap: wrap; gap: 10px;">
+            <h2>Image Previews</h2>
+            <div id="previewList"></div>
+        </div>
+        <button type="submit">Upload</button>
+    </form>
+    <div id="uploadStatus"></div>
+    <div id="uploadedImages"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/v4-shims.min.js"></script>
+
+    <!-- Custom JS API -->
+    <script src="./APIS/uploadAPI.js"></script>
+    <script src="./APIS/imagePreview.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patricks Personal Gallery</title>
+
+    <!-- Custom Header CSS styling -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/header.css"/>
+
+    <!-- Custom Footer Css CSS styling-->
+    <link rel="stylesheet" type="text/css" href="./assets/css/footer.css"/>
+
+    <!-- Global Css Defaults -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/global.css">
+
+    <!-- Photos Main Section CSS Styling -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/photosMainSection.css"/>
+
+    <!-- Font Awesome for social media icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!--  Navigation Bar/Links -->
+        <nav>
+            <div class="nav-items">
+                <h1 id="brand-name"></h1>
+                <div class="hamburger-menu" id="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul id="nav-links" class="nav-links">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="/uploadImages/">Upload Images</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+
+    <!-- Main Personal Photos Gallery Section -->
+     <main class="photo-gallery-main-section">
+        <section id="photo-gallery">
+            <h2>My Photo Gallery</h2>
+            <p>Welcome to my personal photo gallery! Here, you can explore a collection of my favorite moments captured through the lens. From breathtaking landscapes to candid shots, each photo tells a story. Feel free to browse through the gallery and enjoy the visual journey!</p>
+            
+            <div class="gallery-container" id="gallery-container">
+                <!-- Photos will be dynamically loaded here -->
+
+            </div>
+        </section>
+     </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content-wrap">
+            <div class="quick-links">
+                <h3>Quick Links</h3>
+                <div class="underline"></div>
+                <a href="#home">Home</a>
+            </div>
+
+            </div>
+        </div>
+        <div class="copyright-tag">
+            <p>Copyright   &copy; 2025 - <span id="year">
+            </span>| Maintained by <span>
+                <a href="https://patrick-alunya.netlify.app" target="_blank">Patrick Alunya</a>
+            </span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- External JS Scripts -->
+    <script type="text/javascript" src="./assets/js/current-year.js"></script>
+    <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/photosAPI.js"></script>
+    <script src ="./auth/auth.js"></script>
+</body>
+</html>

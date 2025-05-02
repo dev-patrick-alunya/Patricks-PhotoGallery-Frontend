@@ -1,0 +1,46 @@
+.photo-gallery-main-section {
+    max-width: 1440px;
+    /* margin-top: 100px; */
+}
+
+#photo-gallery {
+    text-align: center;
+    padding: 20px;
+    margin: 0 auto;
+    border: 1px solid #ddd;         
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    background-color: #6F4E37; /* AliceBlue */
+}
+
+.photo-item {
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.photo-item p {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #555;
+}
