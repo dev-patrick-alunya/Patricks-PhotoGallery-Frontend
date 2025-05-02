@@ -47,7 +47,7 @@ async function handleLogin(event) {
     const errorMessage = document.getElementById('error-message');
 
     try {
-        const response = await fetch('https://patricks-photogallery-backend.onrender.com//login', { // Fixed the URL by adding a slash
+        const response = await fetch('https://patricks-photogallery-backend.onrender.com/login', { // Fixed the URL by adding a slash
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

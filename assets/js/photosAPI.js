@@ -1,7 +1,7 @@
 // Fetch photos from the backend and display them in the gallery
 async function loadGallery() {
     try {
-        const response = await fetch('https://patricks-photogallery-backend.onrender.com//photos', {
+        const response = await fetch('https://patricks-photogallery-backend.onrender.com/photos', {
             method: 'GET',
             // Add any necessary authentication headers here
         });
@@ -22,7 +22,7 @@ async function loadGallery() {
             
         // Loop through the photos and create elements for each one
         photos.forEach(row => {
-            row.url = `https://patricks-photogallery-backend.onrender.com//uploads/${row.filename}`; // Fixed reference to photo.filename
+            row.url = `https://patricks-photogallery-backend.onrender.com/uploads/${row.filename}`; // Fixed reference to photo.filename
             const photoElement = document.createElement('div');
             photoElement.classList.add('photo-item');
             photoElement.style.display = 'inline-block';
@@ -66,7 +66,7 @@ async function loadGallery() {
             galleryContainer.appendChild(photoElement);
             deleteButton.addEventListener('click', async () => {
                 try {
-                    const deleteResponse = await fetch(`https://patricks-photogallery-backend.onrender.com//delete/${row.filename}`, { // Fixed filename reference
+                    const deleteResponse = await fetch(`https://patricks-photogallery-backend.onrender.com/delete/${row.filename}`, { // Fixed filename reference
                         method: 'DELETE',
                     });
                     if (!deleteResponse.ok) {

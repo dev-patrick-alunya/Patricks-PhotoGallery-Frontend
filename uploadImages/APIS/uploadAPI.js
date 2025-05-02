@@ -12,7 +12,7 @@ $(document).ready(function () {
         }
 
         $.ajax({
-            url: 'https://patricks-photogallery-backend.onrender.com//upload',
+            url: 'https://patricks-photogallery-backend.onrender.com/upload',
             type: 'POST',
             data: formData,
             processData: false,
