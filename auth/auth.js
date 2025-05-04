@@ -26,14 +26,21 @@ function validateForm() {
     return true;
 }
 
-let token = localStorage.getItem('token');
+document.addEventListener('DOMContentLoaded', () => {
+    let token = localStorage.getItem('token');
 
-if (token) {
-    const returnUrl = new URLSearchParams(window.location.search).get('returnUrl') || '../';
-    window.location.href = returnUrl; // Redirect to the return URL or the project root if already logged in
-} else {
-    document.getElementById('login-form').style.display = 'block';
-}
+    if (token) {
+        const returnUrl = new URLSearchParams(window.location.search).get('returnUrl') || '../';
+        window.location.href = returnUrl; // Redirect to the return URL or the project root if already logged in
+    } else {
+        const loginForm = document.getElementById('login-form');
+        if (loginForm) {
+            loginForm.style.display = 'block';
+        } else {
+            console.error('Login form element not found in the DOM.');
+        }
+    }
+});
 
 async function handleLogin(event) {
     event.preventDefault();
