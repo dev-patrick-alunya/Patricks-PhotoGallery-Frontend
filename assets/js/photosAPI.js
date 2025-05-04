@@ -1,3 +1,6 @@
+// This script fetches photos from the backend and displays them in a gallery format.
+//             localStorage.setItem('userId', data.userId); // Store userId in local storage
+
 // Fetch photos from the backend and display them in the gallery
 async function loadGallery() {
     try {

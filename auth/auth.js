@@ -35,17 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return true;
     }
 
-    let token = localStorage.getItem('token');
-
-    if (token) {
-        const returnUrl = new URLSearchParams(window.location.search).get('returnUrl') || '../';
-        window.location.href = returnUrl; // Redirect to the return URL or the project root if already logged in
-    } 
-    
-    else {
-        const returnUrl = new URLSearchParams(window.location.search).get('returnUrl') || './auth/';
-        window.location.href = returnUrl;
-    }
 
     async function handleLogin(event) {
         event.preventDefault();
