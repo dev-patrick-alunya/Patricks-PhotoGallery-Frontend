@@ -3,11 +3,32 @@ $(document).ready(function () {
         e.preventDefault();
         $('#uploadStatus').text('Uploading...');
 
-        const fileInput = document.getElementById('imageUpload'); // Define fileInput
+        const fileInput = document.getElementById('imageUpload');
+        if (fileInput.files.length === 0) {
+            $('#uploadStatus').text('Please select at least one file.');
+            return;
+        }
+
+        const allowedTypes =
+        [
+            'image/jpeg', 
+            'image/png', 
+            'image/gif',
+            'image/jpg',
+            'image/webp',
+            'image/bmp',
+        ];
         const formData = new FormData();
 
-        // Append all selected files to the FormData object
         for (let i = 0; i < fileInput.files.length; i++) {
+            if (!allowedTypes.includes(fileInput.files[i].type)) {
+                $('#uploadStatus').text('Only JPEG, PNG, and GIF files are allowed.');
+                return;
+            }
+            if (fileInput.files[i].size > 5 * 1024 * 1024) { // 5MB limit
+                $('#uploadStatus').text('File size must be less than 5MB.');
+                return;
+            }
             formData.append('files', fileInput.files[i]);
         }
 
@@ -17,12 +38,14 @@ $(document).ready(function () {
             data: formData,
             processData: false,
             contentType: false,
+            beforeSend: function () {
+                $('#uploadStatus').text('Uploading...');
+                $('#uploadButton').prop('disabled', true); // Disable the button
+            },
             success: function (response) {
                 $('#uploadStatus').text('Upload successful!');
                 alert('Upload successful!');
-                // Clear the file input after successful upload
                 $('#imageUpload').val('');
-                window.location.reload(); // Reload the page to show the uploaded images
                 const uploadedImagesDiv = $('#uploadedImages');
                 uploadedImagesDiv.empty();
                 response.images.forEach(image => {
@@ -30,8 +53,12 @@ $(document).ready(function () {
                     uploadedImagesDiv.append(imgElement);
                 });
             },
-            error: function () {
-                $('#uploadStatus').text('Upload failed. Please try again.');
+            error: function (xhr) {
+                const errorMessage = xhr.responseJSON?.message || 'Upload failed. Please try again.';
+                $('#uploadStatus').text(errorMessage);
+            },
+            complete: function () {
+                $('#uploadButton').prop('disabled', false); // Re-enable the button
             }
         });
     });
