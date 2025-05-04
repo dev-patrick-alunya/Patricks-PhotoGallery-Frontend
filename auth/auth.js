@@ -1,10 +1,13 @@
-
-
 document.addEventListener('DOMContentLoaded', () => {
-
     function togglePasswordVisibility() {
         const passwordInput = document.getElementById('password');
-        const toggleIcon = document.querySelector('togglePassword');
+        const toggleIcon = document.querySelector('.toggle-password');
+
+        if (!passwordInput || !toggleIcon) {
+            console.error('Password input or toggle icon not found in the DOM.');
+            return;
+        }
+
         if (passwordInput.type === 'password') {
             passwordInput.type = 'text';
             toggleIcon.classList.remove('fa-eye-slash');
@@ -15,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleIcon.classList.add('fa-eye-slash');
         }
     }
+
     togglePasswordVisibility();
     
     function validateForm() {
@@ -37,12 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const returnUrl = new URLSearchParams(window.location.search).get('returnUrl') || '../';
         window.location.href = returnUrl; // Redirect to the return URL or the project root if already logged in
     } else {
-        const loginForm = document.getElementById('login-form');
-        if (loginForm) {
-            loginForm.style.display = 'block';
-        } else {
-            console.error('Login form element not found in the DOM.');
-        }
+        const returnUrl = new URLSearchParams(window.location.search).get('returnUrl') || './login.html';
+        window.location.href = returnUrl;
     }
 
     async function handleLogin(event) {
