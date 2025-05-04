@@ -40,8 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (token) {
         const returnUrl = new URLSearchParams(window.location.search).get('returnUrl') || '../';
         window.location.href = returnUrl; // Redirect to the return URL or the project root if already logged in
-    } else {
-        const returnUrl = new URLSearchParams(window.location.search).get('returnUrl') || './login.html';
+    } 
+    
+    else {
+        const returnUrl = new URLSearchParams(window.location.search).get('returnUrl') || './auth/';
         window.location.href = returnUrl;
     }
 
